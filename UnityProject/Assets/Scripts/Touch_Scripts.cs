@@ -41,6 +41,11 @@ public class Touch_Scripts : MonoBehaviour
     /// </summary>
     private Coroutine cor_CameraReset;
 
+    /// <summary>
+    /// 카메라 초기화 실행 텀
+    /// </summary>
+    public float int_camResetTerm = 1.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -95,7 +100,7 @@ public class Touch_Scripts : MonoBehaviour
         //마우스 좌클릭업
         if (Input.GetMouseButtonUp(0))
         {
-            cor_CameraReset = StartCoroutine("CameraMovetoPosZero");
+            //cor_CameraReset = StartCoroutine("CameraMovetoPosZero");
 
             bool_mouseButtonStay = false;
 
@@ -114,12 +119,20 @@ public class Touch_Scripts : MonoBehaviour
     }
 
     /// <summary>
+    /// 함수 호출 시 화면 중앙으로 이동
+    /// </summary>
+    public void CameraPosReset_Start()
+    {
+        cor_CameraReset = StartCoroutine("CameraMovetoPosZero");
+    }
+
+    /// <summary>
     /// 카메라 초기 위치 되돌리기
     /// </summary>
     /// <returns></returns>
     IEnumerator CameraMovetoPosZero()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(int_camResetTerm);
 
         float temp_speed = 10f;
 
