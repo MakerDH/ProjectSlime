@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     ulong ulong_resource_evil, ulong_resource_teil, ulong_resource_curse, ulong_resource_monster, 
         ulong_resource_undead, ulong_resource_nature, ulong_resource_angle;
-
+    
     /// <summary>
     /// 플레이어 레벨
     /// </summary>
