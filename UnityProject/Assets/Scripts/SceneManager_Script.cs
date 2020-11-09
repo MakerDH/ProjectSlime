@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneManager_Script : MonoBehaviour
 {
     public string str_target_sceneName;
-
+    
     private void Start()
     {
        //// Screen.SetResolution(1440, 2560, false);
