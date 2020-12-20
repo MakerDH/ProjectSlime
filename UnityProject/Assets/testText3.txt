@@ -1,5 +1,0 @@
-{"settingTime":1.0,"currentTime":5.0,"slimeTpye_evil":10,"slimeTpye_teil":0,"slimeTpye_curse":0,"slimeTpye_monster":0,"slimeTpye_undead":0,"slimeTpye_nature":0,"slimeTpye_angle":0}
-{"settingTime":5.0,"currentTime":2.0,"slimeTpye_evil":0,"slimeTpye_teil":20,"slimeTpye_curse":0,"slimeTpye_monster":0,"slimeTpye_undead":0,"slimeTpye_nature":0,"slimeTpye_angle":0}
-{"settingTime":10.0,"currentTime":5.0,"slimeTpye_evil":0,"slimeTpye_teil":0,"slimeTpye_curse":30,"slimeTpye_monster":0,"slimeTpye_undead":0,"slimeTpye_nature":0,"slimeTpye_angle":0}
-{"settingTime":15.0,"currentTime":3.0,"slimeTpye_evil":0,"slimeTpye_teil":0,"slimeTpye_curse":0,"slimeTpye_monster":40,"slimeTpye_undead":0,"slimeTpye_nature":0,"slimeTpye_angle":0}
-{"settingTime":19.0,"currentTime":5.0,"slimeTpye_evil":0,"slimeTpye_teil":0,"slimeTpye_curse":0,"slimeTpye_monster":0,"slimeTpye_undead":50,"slimeTpye_nature":0,"slimeTpye_angle":0}
