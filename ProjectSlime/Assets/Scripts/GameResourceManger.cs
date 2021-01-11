@@ -20,10 +20,18 @@ public class GameResourceManger : MonoBehaviour
         //제거 방지
         DontDestroyOnLoad(gameObject);
     }
+
+    //================================//
+    private uint[] resources;
+    private ushort[] updataBase;
+
+
+    private Coroutine resourceUpdate;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
     }
 
     // Update is called once per frame
@@ -31,4 +39,50 @@ public class GameResourceManger : MonoBehaviour
     {
         
     }
+
+    public void Init()
+    {
+        ResourceInitialize();
+        UpdateBaceInitialize();
+
+        resourceUpdate = StartCoroutine(ResourceUpdate());
+    }
+
+    public void ResourceInitialize()
+    {
+        //test code
+        resources = new uint[6];
+        for (int i = 0; i < resources.Length; ++i)
+        {
+            resources[i] = 0;
+        }
+    }
+    public void UpdateBaceInitialize()
+    { 
+        //test code
+        updataBase = new ushort[6];
+        for (int i = 0; i < updataBase.Length; ++i)
+        {
+            updataBase[i] = 1;
+        }
+    }
+
+
+    IEnumerator ResourceUpdate()
+    {
+        while(true)//null != resourceUpdate)
+        {
+            for(int i = 0; i< resources.Length; ++i)
+            {
+                resources[i] += updataBase[i];
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        
+    }
+
+    public uint Get_Resources(int i){ return resources[i]; }
+    public void Set_Resources(int i, uint n) { resources[i] = n; }
+    public uint Get_UpdataBase(int i) { return updataBase[i]; }
+    public void Set_UpdataBase(int i, ushort n) { updataBase[i] = n; }
 }
