@@ -3,17 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum DungeonType
-{
-    normal,
-    gold,
-    experience
-}
 
-public class Dungeon
-{
 
-}
 
 public class FieldManager : MonoBehaviour
 {
@@ -25,7 +16,14 @@ public class FieldManager : MonoBehaviour
     private void Awake()
     {
         //싱글턴 인스턴트
-        if (null == instance) { instance = this; }
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+            return;
+        }
+        instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     //변수
@@ -35,11 +33,22 @@ public class FieldManager : MonoBehaviour
     private Vector2 vec2_fieldMap_origin_pos;
     public float m_movespeed;
     //============================================//
-
+    [SerializeField]
+    private List<Dungeon> dungeons;
 
     public void Init()
     {
         vec2_fieldMap_origin_pos = rt_field_map.anchoredPosition;
+
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Dungeons");
+
+        for (ushort i = 0; i < objects.Length; ++i)
+        {
+            dungeons.Add(objects[i].GetComponent<Dungeon>());
+            Debug.Log(dungeons[i].gameObject.name);
+            dungeons[i].Index = i;
+        }
+         
     }
 
     // Start is called before the first frame update
@@ -78,7 +87,7 @@ public class FieldManager : MonoBehaviour
 
     public string DungeonInfomation(int n)
     {
-        string test = string.Format("전투력 {0}\n속성 저주\n이동시간 3분\n추천레벨 30", n);
+        string test = string.Format("전투력 {0}\n속성 저주\n이동시간 3분\n추천레벨 30", (DungeonType)n);
         return test;
     }
 

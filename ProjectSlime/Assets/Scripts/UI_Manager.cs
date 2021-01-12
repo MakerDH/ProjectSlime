@@ -127,6 +127,7 @@ public class UI_Manager : MonoBehaviour
         dungeonInfo.SetActive(false);
         FieldManager.Instance.DungeonStart();
     }
+
     public void Click_Dungeon_Cancle()
     {
         dungeonInfo.SetActive(false);
