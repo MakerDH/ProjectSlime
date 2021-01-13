@@ -38,13 +38,15 @@ public class Dungeon : MonoBehaviour
 
     private void Start()
     {
+        //버튼 스크립트에 이벤트 연결
         GetComponent<UnityEngine.UI.Button>().onClick.AddListener(delegate { Click(); });
     }
-
     
 
     public void Click()
     {
         Debug.Log("click " + gameObject.name);
+
+        FieldManager.Instance.DungeonInfomation(Index);
     }
 }

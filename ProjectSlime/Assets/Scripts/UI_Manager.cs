@@ -115,9 +115,9 @@ public class UI_Manager : MonoBehaviour
     public void Off_Loading() { loading.SetActive(false); }
 
 
-    public void Click_Dungeon(int n)
+    public void Click_Dungeon(string str)
     {
-        tx_dungeonInfo.text = FieldManager.Instance.DungeonInfomation(n);
+        tx_dungeonInfo.text = str;
         
         dungeonInfo.SetActive(true);
     }

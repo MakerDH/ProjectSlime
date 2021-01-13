@@ -26,9 +26,8 @@ public class FieldManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //변수
+    //맵 제어
     //============================================//
-
     public RectTransform rt_field_map;
     private Vector2 vec2_fieldMap_origin_pos;
     public float m_movespeed;
@@ -63,9 +62,20 @@ public class FieldManager : MonoBehaviour
         
     }
 
+    private void LateUpdate()
+    {
+        if(Input.GetMouseButtonDown(0) && null != mapReset)
+        {
+            StopCoroutine(mapReset);
+            mapReset = null;
+        }
+    }
+
+
+    private Coroutine mapReset;
     public void Button_Map_Reset()
     {
-        StartCoroutine(Map_Reset_move());
+        mapReset = StartCoroutine(Map_Reset_move());
     }
 
     IEnumerator Map_Reset_move()
@@ -83,12 +93,20 @@ public class FieldManager : MonoBehaviour
         }
 
         rt_field_map.anchoredPosition = vec2_fieldMap_origin_pos;
+        //mapReset = null;
     }
 
-    public string DungeonInfomation(int n)
+    public void DungeonInfomation(int _index)
     {
-        string test = string.Format("전투력 {0}\n속성 저주\n이동시간 3분\n추천레벨 30", (DungeonType)n);
-        return test;
+        string _string = string.Format("던전 이름 {0}\n자원 종류{1}\n자원량 {2}\n추천레벨 {3}\n채집시간 {4}",
+            dungeons[_index].Name,
+            dungeons[_index].Type,
+            dungeons[_index].Item,            
+            dungeons[_index].Level,
+            dungeons[_index].DurationTime                        
+            ) ;
+
+        UI_Manager.Instance.Click_Dungeon(_string);
     }
 
     public void DungeonStart()

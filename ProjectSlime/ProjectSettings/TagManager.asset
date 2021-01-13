@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dungeons
+  - SlimeClone
   layers:
   - Default
   - TransparentFX

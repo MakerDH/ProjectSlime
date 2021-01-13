@@ -1,23 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum SlimeType
-{
-    normal,
-    white,
-    red,
-    blue,
-    green,
-    black
-}
-
-public class Slime
-{
-    public SlimeType slimeType;
-    public ushort level;
 
 
-}
 
 
 public class Alter_Manager : MonoBehaviour
