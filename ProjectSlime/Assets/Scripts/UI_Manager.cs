@@ -22,12 +22,16 @@ public class UI_Manager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     //====================//
-    enum UI_Buttons
+    enum UI_Buttons : int
     {
         MyRoom = 0,
         Field = 1,
         Alter = 2,
         Store = 4
+        //MyRoom ,
+        //Field ,
+        //Alter ,
+        //Store 
     }
 
 
@@ -45,12 +49,24 @@ public class UI_Manager : MonoBehaviour
     //image
     public GameObject loading;
 
+    private Coroutine ui_Update;
+
+    #region Filed
     //field tap
     public GameObject dungeonInfo;
     public Text tx_dungeonInfo;
+    #endregion
+    
+    #region Slime
+    public GameObject slimeInfo;
+    public Text tx_slimeInfo;
+    #endregion
 
-
-    private Coroutine ui_Update;
+    #region Castle
+    public GameObject castleInfo;
+    public Text tx_CastleInfo;
+    #endregion
+    
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +131,8 @@ public class UI_Manager : MonoBehaviour
     public void Off_Loading() { loading.SetActive(false); }
 
 
+    
+    #region Filed
     public void Click_Dungeon(string str)
     {
         tx_dungeonInfo.text = str;
@@ -132,4 +150,14 @@ public class UI_Manager : MonoBehaviour
     {
         dungeonInfo.SetActive(false);
     }
+    #endregion
+
+    
+    #region Alter
+    public void Click_Alter(string _str)
+    {
+        slimeInfo.SetActive(true);
+        tx_slimeInfo.text = _str;
+    }
+    #endregion
 }

@@ -22,6 +22,8 @@ public class GameResourceManger : MonoBehaviour
     }
 
     //================================//
+    private Slime slimeOriginal;
+
     private uint[] resources;
     private ushort[] updataBase;
 
@@ -42,6 +44,8 @@ public class GameResourceManger : MonoBehaviour
 
     public void Init()
     {
+        slimeOriginal = new Slime();
+
         ResourceInitialize();
         UpdateBaceInitialize();
 
