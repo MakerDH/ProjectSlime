@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameResourceManger.cs" />
     <Compile Include="Assets\Scripts\GameSceneManager.cs" />
+    <Compile Include="Assets\Scripts\MyCastleManager.cs" />
     <Compile Include="Assets\Scripts\MyRoomManager.cs" />
     <Compile Include="Assets\Scripts\Slimes.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />

@@ -37,6 +37,7 @@ public class UI_Manager : MonoBehaviour
 
     //====================//
 
+    [Header("UI_base")]
     //text
     public Text[] tx_rec;//    public Text tx_rec_b;    public Text tx_rec_c;    public Text tx_rec_d;    public Text tx_rec_e;    public Text tx_rec_f;
 
@@ -51,22 +52,30 @@ public class UI_Manager : MonoBehaviour
 
     private Coroutine ui_Update;
 
+    [Header("Filed")]
     #region Filed
     //field tap
     public GameObject dungeonInfo;
     public Text tx_dungeonInfo;
     #endregion
-    
+
+    [Header("Alter")]
     #region Slime
     public GameObject slimeInfo;
     public Text tx_slimeInfo;
     #endregion
 
+    [Header("Castle")]
     #region Castle
-    public GameObject castleInfo;
-    public Text tx_CastleInfo;
+    public GameObject castleInfo_Level;
+    public Text tx_CastleInfo_Level;
+
+    public GameObject castleInfo_Skill;
+    public Text tx_CastleInfo_Skill;
+
+    public Text[] tx_temp_rec;
     #endregion
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -159,5 +168,42 @@ public class UI_Manager : MonoBehaviour
         slimeInfo.SetActive(true);
         tx_slimeInfo.text = _str;
     }
+    #endregion
+
+    #region Castle
+    public void Click_Castle_Level()
+    {
+        castleInfo_Level.SetActive(true);
+        tx_CastleInfo_Level.text = "계산전";
+    }
+
+    public void Click_Add_Resource(int n, uint _rec)
+    {
+        tx_temp_rec[n].text = _rec.ToString();
+    }
+    public void Set_NextLevel_Calculate()
+    {
+        tx_CastleInfo_Level.text = "계산후";
+    }
+
+    public void Click_Cansle_LevelUp()
+    {
+        castleInfo_Level.SetActive(false);
+        MyCastleManager.Instance.Click_Cansle_LevelUp();
+
+        for(int i = 0; i<tx_temp_rec.Length; ++i)
+        {
+            tx_temp_rec[i].text = "0";
+        }
+
+    }
+
+    public void Click_Castle_Skill()
+    {
+        castleInfo_Skill.SetActive(true);
+        tx_CastleInfo_Skill.text = "";
+    }
+
+
     #endregion
 }
