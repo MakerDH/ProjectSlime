@@ -27,6 +27,7 @@ public class UI_Manager : MonoBehaviour
         MyRoom = 0,
         Field = 1,
         Alter = 2,
+        MyCastle = 3,
         Store = 4
         //MyRoom ,
         //Field ,
@@ -51,6 +52,14 @@ public class UI_Manager : MonoBehaviour
     public GameObject loading;
 
     private Coroutine ui_Update;
+
+    [Header("MyRoom")]
+    #region MyRoom
+    //public GameObject dungeonInfo;
+    public Text tx_MyRoom_Level;
+    public Text tx_MyRoom_ATK;
+    public Text tx_MyRoom_type;
+    #endregion
 
     [Header("Filed")]
     #region Filed
@@ -104,8 +113,14 @@ public class UI_Manager : MonoBehaviour
     {
         loading.SetActive(false);
 
+        Click_MyRoom();
+
         ui_Update = StartCoroutine(UI_Update());
+
+        Init_MyRoom();
     }
+
+
 
     public void Maps_Clear() 
     {
@@ -130,6 +145,13 @@ public class UI_Manager : MonoBehaviour
         Maps_Clear();
         Maps[(int)UI_Buttons.Alter].SetActive(true);
     }
+
+    public void Click_MyCastle()
+    {
+        Maps_Clear();
+        Maps[(int)UI_Buttons.MyCastle].SetActive(true);
+    }
+
     public void Click_Store()
     {
         Maps_Clear();
@@ -140,7 +162,19 @@ public class UI_Manager : MonoBehaviour
     public void Off_Loading() { loading.SetActive(false); }
 
 
-    
+
+    #region MyRoom
+    public void Init_MyRoom()
+    {
+        //tx_MyRoom_Level;
+        //tx_MyRoom_ATK;
+        //tx_MyRoom_type;
+    }
+
+    #endregion
+
+
+
     #region Filed
     public void Click_Dungeon(string str)
     {
