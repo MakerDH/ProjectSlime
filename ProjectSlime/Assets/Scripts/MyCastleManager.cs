@@ -42,11 +42,13 @@ public class MyCastleManager : MonoBehaviour
     }
 
     private uint[] temp_Resource;
+    private uint temp_nextLevel;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+      //  Init();
     }
 
     // Update is called once per frame
@@ -63,7 +65,9 @@ public class MyCastleManager : MonoBehaviour
 
     public void Reset_Recourse()
     {
-        for(int i = 0; i < temp_Resource.Length; ++i)
+        temp_nextLevel = 0;
+
+        for (int i = 0; i < temp_Resource.Length; ++i)
         {
             temp_Resource[i] = 0;
         }        
@@ -74,6 +78,8 @@ public class MyCastleManager : MonoBehaviour
     public void CalculateNextLevel(int n, int _set)
     {
         uint temp = GameResourceManger.Instance.Get_Resources(n);
+
+        temp_nextLevel = 0;
 
         if (_set > 0)
         {
@@ -98,8 +104,37 @@ public class MyCastleManager : MonoBehaviour
             }
         }
 
+        for(int i = 0; i< temp_Resource.Length;++i) 
+        {
+            temp_nextLevel += temp_Resource[i];
+        }
+
+        
+
+
         UI_Manager.Instance.Click_Add_Resource(n, temp_Resource[n]);
-        UI_Manager.Instance.Set_NextLevel_Calculate();
+        UI_Manager.Instance.Set_NextLevel_Calculate(temp_nextLevel + MyRoomManager.Instance.SlimeMaxLevel);
+    }
+
+    public void Click_NextLevel_Apply()
+    {
+        MyRoomManager.Instance.SlimeLevel = temp_nextLevel + MyRoomManager.Instance.SlimeLevel;
+        MyRoomManager.Instance.SlimeMaxLevel = temp_nextLevel + MyRoomManager.Instance.SlimeMaxLevel;
+
+
+        uint _temp = 0;
+
+        for (int i = 0; i < temp_Resource.Length; ++i)
+        {
+            _temp = GameResourceManger.Instance.Get_Resources(i) - temp_Resource[i];
+            GameResourceManger.Instance.Set_Resources(i, _temp);
+
+            UI_Manager.Instance.Click_Add_Resource(i, 0);
+        }
+
+        Reset_Recourse();
+
+        UI_Manager.Instance.Set_NextLevel_Apply();
     }
 
     public void Click_Set_Temp_Resource(int e)

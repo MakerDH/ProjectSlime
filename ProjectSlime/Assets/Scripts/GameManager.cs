@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialize();
     }
 
     // Update is called once per frame
@@ -32,4 +32,20 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void Initialize()
+    {
+        SoundManager.Instance.Init();
+
+        MyRoomManager.Instance.Init();
+        FieldManager.Instance.Init();
+        Alter_Manager.Instance.Init();
+        MyCastleManager.Instance.Init();
+        Store_Manager.Instance.Init();
+
+        GameResourceManger.Instance.Init();
+
+        UI_Manager.Instance.Init();
+    }
+
 }

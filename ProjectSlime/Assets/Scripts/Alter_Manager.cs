@@ -31,7 +31,7 @@ public class Alter_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        //Init();
     }
 
     // Update is called once per frame

@@ -58,7 +58,7 @@ public class GameResourceManger : MonoBehaviour
         resources = new uint[6];
         for (int i = 0; i < resources.Length; ++i)
         {
-            resources[i] = 0;
+            resources[i] = 10;
         }
     }
     public void UpdateBaceInitialize()

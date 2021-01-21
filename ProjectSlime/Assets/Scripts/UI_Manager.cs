@@ -76,6 +76,9 @@ public class UI_Manager : MonoBehaviour
 
     [Header("Castle")]
     #region Castle
+    public Text tx_Castle_Level;
+    public Text tx_Castle_Power;
+
     public GameObject castleInfo_Level;
     public Text tx_CastleInfo_Level;
 
@@ -117,7 +120,6 @@ public class UI_Manager : MonoBehaviour
 
         ui_Update = StartCoroutine(UI_Update());
 
-        Init_MyRoom();
     }
 
 
@@ -132,6 +134,8 @@ public class UI_Manager : MonoBehaviour
     public void Click_MyRoom()
     {
         Maps_Clear();
+
+        Set_MyRoomInfo();
 
         Maps[(int)UI_Buttons.MyRoom].SetActive(true);
     }
@@ -149,6 +153,9 @@ public class UI_Manager : MonoBehaviour
     public void Click_MyCastle()
     {
         Maps_Clear();
+
+        Set_MyCastleInfo();
+
         Maps[(int)UI_Buttons.MyCastle].SetActive(true);
     }
 
@@ -171,6 +178,13 @@ public class UI_Manager : MonoBehaviour
         //tx_MyRoom_type;
     }
 
+    public void Set_MyRoomInfo()
+    {
+        tx_MyRoom_Level.text = string.Format("{0} / {1}",  MyRoomManager.Instance.SlimeLevel, MyRoomManager.Instance.SlimeMaxLevel);
+        tx_MyRoom_ATK.text = string.Format("{0} J", MyRoomManager.Instance.Get_SlimePower());
+        //tx_MyRoom_type;
+    }
+    
     #endregion
 
 
@@ -205,21 +219,38 @@ public class UI_Manager : MonoBehaviour
     #endregion
 
     #region Castle
+    public void Set_MyCastleInfo()
+    {
+        tx_Castle_Level.text = string.Format("{0} / {1}", MyRoomManager.Instance.SlimeLevel, MyRoomManager.Instance.SlimeMaxLevel); 
+        tx_Castle_Power.text = string.Format("{0} J", MyRoomManager.Instance.Get_SlimePower());
+    }
+
+
+
     public void Click_Castle_Level()
     {
         castleInfo_Level.SetActive(true);
         tx_CastleInfo_Level.text = "계산전";
     }
 
+
     public void Click_Add_Resource(int n, uint _rec)
     {
         tx_temp_rec[n].text = _rec.ToString();
     }
-    public void Set_NextLevel_Calculate()
+    public void Set_NextLevel_Calculate(uint _nextLevel)
     {
-        tx_CastleInfo_Level.text = "계산후";
+        tx_CastleInfo_Level.text = string.Format("예상레벨 : {0}", _nextLevel);
     }
 
+    public void Set_NextLevel_Apply()
+    {
+        Set_MyCastleInfo();
+        
+        castleInfo_Level.SetActive(false);
+    }
+
+    
     public void Click_Cansle_LevelUp()
     {
         castleInfo_Level.SetActive(false);
@@ -237,7 +268,5 @@ public class UI_Manager : MonoBehaviour
         castleInfo_Skill.SetActive(true);
         tx_CastleInfo_Skill.text = "";
     }
-
-
     #endregion
 }

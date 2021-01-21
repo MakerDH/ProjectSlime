@@ -12229,7 +12229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: -342}
+  m_AnchoredPosition: {x: 100, y: -345}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &872980100
@@ -12959,6 +12959,8 @@ MonoBehaviour:
   tx_dungeonInfo: {fileID: 298336590}
   slimeInfo: {fileID: 1761739022}
   tx_slimeInfo: {fileID: 103348077}
+  tx_Castle_Level: {fileID: 815499297}
+  tx_Castle_Power: {fileID: 610129676}
   castleInfo_Level: {fileID: 1135294791}
   tx_CastleInfo_Level: {fileID: 184386611}
   castleInfo_Skill: {fileID: 0}
@@ -20206,7 +20208,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452187955}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 230639982}
+        m_MethodName: Click_NextLevel_Apply
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1452187955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26538,7 +26551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92, y: -343}
+  m_AnchoredPosition: {x: -100, y: -345}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033211491

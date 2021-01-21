@@ -33,8 +33,8 @@ public class MyRoomManager : MonoBehaviour
     }
 
     //========================//
-    private ushort slimeMaxLevel; public ushort SlimeMaxLevel { get { return slimeMaxLevel; } set { slimeMaxLevel += value; } }
-    private ushort slimeLevel; public ushort SlimeLevel { get { return slimeLevel; } set { slimeLevel += value; } }
+    private uint slimeMaxLevel; public uint SlimeMaxLevel { get { return slimeMaxLevel; } set { slimeMaxLevel = value; } }
+    private uint slimeLevel; public uint SlimeLevel { get { return slimeLevel; } set { slimeLevel = value; } }
 
     //========================//
 
@@ -42,7 +42,7 @@ public class MyRoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+       // Init();
     }
 
     // Update is called once per frame
@@ -56,6 +56,11 @@ public class MyRoomManager : MonoBehaviour
     {
         slimeMaxLevel = 5;
         slimeLevel = 1;
+    }
+
+    public uint Get_SlimePower()
+    {        
+        return slimeLevel * slimeMaxLevel;
     }
 }
 

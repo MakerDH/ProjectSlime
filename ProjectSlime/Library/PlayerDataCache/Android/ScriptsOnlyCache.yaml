@@ -23,8 +23,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Mobile.AndroidLogcat.Editor.dll:
     - Unity.Android.Logcat.AndroidLogcatManager
-    Unity.Notifications.dll:
-    - Unity.Notifications.UnityNotificationEditorManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -1028,7 +1026,7 @@ ScriptsOnlyBuild:
     className: FieldManager
   - hash:
       serializedVersion: 2
-      Hash: 256332c7e27d25731e007eda3222a089
+      Hash: 5a9cda08acf861553d45d7fd78fb36f3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
@@ -1077,4 +1075,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game_Scene.unity
-  playerPath: C:/Users/DH/Desktop/Project/ProjectSlime/Bulid_Apk/210120_TestBuild002.apk
+  playerPath: C:/Users/DH/Desktop/Project/ProjectSlime/Bulid_Apk/210121_TestBuild_v_001.apk
